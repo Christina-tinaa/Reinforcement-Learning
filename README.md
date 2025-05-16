@@ -1,13 +1,36 @@
 # Reinforcement-Learning
 IMBIZO PROJECT 2022
 
-Exploring model based (dyna q) and model free reinforcement learning in a gridworld environment.
-A model-based agent is an extension of the model-free agent. With the model-based agent, the value function takes an action and gains experience in the environment.
-Experience gained is stored in the model and then it uses the model to sample so it can learn more of the the value function.
-Created an obstacle gridworld to see if my learning agent (dyna q) could learn in this gridword. 
-After my agent explored in this gridworld world, it was able to learn well despite the obstactles.
-I then visualized the Q-values in the gridworld as the dyna q agent learns.
-After seeing how the dyna q behaves, I then compared the two agents that's the model free and model-based agents to see which of them learns better in the environment.
-From my result obtained, model-based agent learns better and faster than the model free agent.
-I then visualized the Q-values for both model free and model-based agent as they learn.
-With the planning steps, compared differnt planning steps to observe the step at which the agent performs better. With planning steps 2,5 and 10, the outcome showed that the more steps the agent takes the better it performs. So the agent turns to perform better at planning step 10.
+# Dyna‑Q vs. Model‑Free Q‑Learning in a Gridworld
+
+## Overview  
+This project explores and compares a model‑free Q‑Learning agent with a model‑based Dyna‑Q agent navigating a gridworld containing obstacles. The Dyna‑Q agent combines real experience with simulated “planning” steps drawn from its learned transition model.
+
+## Implementation  
+- **Environment:**  
+  - Custom 2D gridworld with walls/obstacles  
+  - Start and goal states defined  
+- **Agents:**  
+  - **Model‑Free Q‑Learning:** Updates Q‑values only from real experience  
+  - **Dyna‑Q (Model‑Based):**  
+    1. Learns a transition/reward model from experience  
+    2. Performs _n_ simulated planning steps per real step to update Q‑values  
+- **Experiments:**  
+  - Navigation performance with static obstacles  
+  - Direct comparison of learning curves (reward vs. episode)  
+  - Varying planning steps (_n_ = 2, 5, 10) to measure impact on learning speed  
+
+## Results  
+- **Learning Speed & Performance:**  
+  - Dyna‑Q converges faster and achieves higher cumulative reward than pure Q‑Learning.  
+  - More planning steps (_n_ = 10) yield the best performance gains.  
+- **Visualizations:**  
+  - Heatmaps of Q‑values over episodes for both agents  
+  - Reward‑per‑episode plots showing convergence rates  
+  - Comparison of trajectories learned in obstacle regions  
+
+## How to Run  
+1. Clone this repo  
+2. Install dependencies:  
+   ```bash
+   pip install -r requirements.txt
